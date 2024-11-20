@@ -1,0 +1,69 @@
+@import "https://fonts.googleapis.com/css?family=Noto Sans Math";
+
+body
+{
+    margin: 0px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1
+{
+    width: 100%;
+    text-align: center;
+}
+
+*
+{
+    font-family: "Noto Sans Math", serif;
+    color: #ffffff;
+    text-shadow: 1px  1px  2px #000000,
+                 -1px 1px  2px #000000,
+                 -1px -1px 2px #000000,
+                 1px  -1px 2px #000000;
+}
+
+button
+{
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid #000000;
+    border-radius: 20px;
+    font-size: 125%;
+    padding: 1%;
+    width: 16%;
+    margin-left: 2%;
+    margin-right: 2%;
+    transition-duration: 0.2s;
+}
+
+button:hover
+{
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 18%;
+}
+
+button:active
+{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#backgroundImage
+{
+    background-image: linear-gradient(to bottom, #d52d00, #ef7627, #ff9a56, #ffffff, #d162a4, #b55690, #a30262);
+    background-color: #550000;
+    background-repeat: repeat-x;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+}
+
+.centered
+{
+    text-align: center;
+}
