@@ -22,13 +22,13 @@ div
 div#main
 {
     text-align: center;
-    font-size: 30vh; /*1250%;*/
+    font-size: 10vw; /*1250%;*/
     background-image: radial-gradient(#662244, #222222);
 }
 
 div#small
 {
-    font-size: 5vh;
+    font-size: 1vw;
 }
 
 button
@@ -38,7 +38,7 @@ button
     position: absolute;
     height: 12.5%;
     left: 0px;
-    font-size: 312.5%;
+    font-size: 3vw;
     background-image: radial-gradient(#aa5500, #550000);
 }
 
