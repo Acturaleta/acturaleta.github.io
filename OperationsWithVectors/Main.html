@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			*
+			{
+				font-family: Arial;
+				font-size: 100%;
+				margin: 0px;
+			}
+			#title
+			{
+				left: 0%;
+				top: 2.5%;
+				width: 100%;
+				height: 12.5%;
+				text-align: center;
+				font-size: 200%;
+			}
+			.selector
+			{
+				background-color: #ffffff;
+				border: 2px solid #000000;
+				border-radius: 1.5625%;
+				width: 1.5625%;
+				height: 2.5%;
+			}
+			#operation_0
+			{
+				left: 3.125%;
+				top: 25%;
+			}
+			#operation_1
+			{
+				left: 3.125%;
+				top: 32.5%;
+			}
+			#operation_2
+			{
+				left: 3.125%;
+				top: 40%;
+			}
+			#operation_3
+			{
+				left: 3.125%;
+				top: 47.5%;
+			}
+			#operation_4
+			{
+				left: 3.125%;
+				top: 55%;
+			}
+			#operation_5
+			{
+				left: 3.125%;
+				top: 62.5%;
+			}
+			.selected
+			{
+				background-color: #aa0000;
+			}
+			.selector_label
+			{
+				left: 1.5625%;
+				margin-left: 4.6875%;
+				width: 15.625%;
+			}
+			.selector_label:hover
+			{
+				text-decoration-line: underline; 
+			}
+			#label0
+			{
+				top: 24.5%;
+			}
+			#label1
+			{
+				top: 32%;
+			}
+			#label2
+			{
+				top: 39.5%;
+			}
+			#label3
+			{
+				top: 47%;
+			}
+			#label4
+			{
+				top: 54.5%;
+			}
+			#label5
+			{
+				top: 62%;
+			}
+			.selector, .selector_label
+			{
+				cursor: pointer;
+			}
+			input
+			{
+				border: 1px solid #000000;
+				left: 46.875%;
+				width: 12.5%;
+				height: 5%;
+			}
+			#u, #u_label
+			{
+				top: 25%;
+			}
+			#v, #v_label
+			{
+				top: 35%;
+			}
+			label
+			{
+				left: 43.75%;
+			}
+			.button
+			{
+				background-color: #ffffff;
+				background-image: linear-gradient(to bottom, #ffffff, #aaaaaa);
+				border: 1px solid #aaaaaa;
+				border-radius: 3px;
+				width: 12.75%;
+				height: 3%;
+				cursor: pointer;
+				text-align: center;
+				font-size: 125%;
+				padding-top: 1%;
+				padding-bottom: 1%;
+			}
+			.button:hover
+			{
+				background-color: #bbbbbb;
+				background-image: linear-gradient(to bottom, #ffffff, #bbbbbb);
+			}
+			.button:active
+			{
+				background-color: #cccccc;
+				background-image: linear-gradient(to bottom, #ffffff, #cccccc);
+			}
+			#b
+			{
+				left: 46.875%;
+				top: 45%;
+			}
+			#result, #result_label
+			{
+				top: 55%;
+			}
+			#result_label
+			{
+				left: 37.5%;
+				margin-left: 4.6875%;
+				width: 15.625%;
+			}
+			div, input, label
+			{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "title">Operations with vectors</div>
+		<div onclick = "selectOperation(0);" class = "selector" id = "operation_0"></div>
+		<div onclick = "selectOperation(0);" class = "selector_label" id = "label0">u + v</div>
+		<div onclick = "selectOperation(1);" class = "selector" id = "operation_1"></div>
+		<div onclick = "selectOperation(1);" class = "selector_label" id = "label1">u - v</div>
+		<div onclick = "selectOperation(2);" class = "selector" id = "operation_2"></div>
+		<div onclick = "selectOperation(2);" class = "selector_label" id = "label2">u * v</div>
+		<div onclick = "selectOperation(3);" class = "selector" id = "operation_3"></div>
+		<div onclick = "selectOperation(3);" class = "selector_label" id = "label3">u &Cross; v</div>
+		<div onclick = "selectOperation(4);" class = "selector" id = "operation_4"></div>
+		<div onclick = "selectOperation(4);" class = "selector_label" id = "label4">angle(u, v)</div>
+		<div onclick = "selectOperation(5);" class = "selector" id = "operation_5"></div>
+		<div onclick = "selectOperation(5);" class = "selector_label" id = "label5">module(u)</div>
+		<input id = "u" placeholder = "i, j, ...">
+		<input id = "v" placeholder = "i, j, ...">
+		<label for = "u" id = "u_label">u: </label>
+		<label for = "v" id = "v_label">v: </label>
+		<div class = "button" id = "b" onclick = "calculate();">Calculate</div>
+		<label for = "result" id = "result_label">Result: </label>
+		<input id = "result" value = "0" readonly>
+	</body>
+</html>
+
+<script>
+
+acos = Math.acos;
+
+function update()
+{
+	if (innerWidth != 640 || innerHeight != 400)
+	{
+		open(location.href, "", "width = 640, height = 400");
+		close();
+	}
+	else
+	{
+		setTimeout(update, 100);
+	}
+}
+
+// update();
+
+operations = document.querySelectorAll(".selector");
+operation0 = operations[0];
+operation1 = operations[1];
+operation2 = operations[2];
+operation3 = operations[3];
+operation4 = operations[4];
+operation5 = operations[5];
+inputs = document.querySelectorAll("input");
+vectorV = inputs[0];
+vectorU = inputs[1];
+resultInput = inputs[2];
+
+function selectOperation(id)
+{
+	operation0.className =
+	operation1.className =
+	operation2.className =
+	operation3.className =
+	operation4.className =
+	operation5.className = "selector";
+	operations[id].className = "selector selected";
+	operation = id;
+	resultInput.value = "";
+}
+
+selectOperation(0);
+
+function calculate()
+{
+	var u = new Function("return [" + vectorU.value + "];")(),
+		v = new Function("return [" + vectorV.value + "];")(),
+		l = u.length,
+		l2 = v.length,
+		result = [];
+	switch (operation)
+	{
+		case 0:
+			if (l != l2)
+			{
+				alert("u and v has not the same dimensions");
+				return;
+			}
+			for (var i = 0; i < l; i++)
+			{
+				result.push(v[i] + u[i]);
+			}
+			break
+			
+		case 1:
+			if (l != l2)
+			{
+				alert("u and v has not the same dimensions");
+				return;
+			}
+			for (var i = 0; i < l; i++)
+			{
+				result.push(v[i] - u[i]);
+			}
+			break
+			
+		case 2:
+			if (l != l2)
+			{
+				alert("u and v has not the same dimensions");
+				return;
+			}
+			var p = dotProduct(u, v);
+			result.push(p);
+			break
+			
+		case 3:
+			if (l != 3 || l2 != 3)
+			{
+				alert("Cross product is only defined for tridimensional vectors");
+				return;
+			}
+			var p = crossProduct(u, v);
+			for (var x of p)
+			{
+				result.push(x);
+			}
+			break
+			
+		case 4:
+			if (l != l2)
+			{
+				alert("u and v has not the same dimensions");
+				return;
+			}
+			result.push(angle(u, v));
+			break
+			
+		case 5:
+			result.push(mod(u));
+			break
+	}
+	resultInput.value = result;
+}
+
+function mod(vector)
+{
+	var result = 0,
+		l = vector.length;
+	for (var i = 0; i < l; i++)
+	{
+		result += vector[i] ** 2;
+	}
+	result **= 0.5;
+	return result;
+}
+
+function angle(v1, v2)
+{
+	return acos(dotProduct(v1, v2) / mod(v1) / mod(v2));
+}
+
+function dotProduct(u, v)
+{
+	var l = u.length,
+		p = 0;
+	for (var i = 0; i < l; i++)
+	{
+		p += u[i] * v[i];
+	}
+	return p;
+}
+
+function crossProduct(u, v)
+{
+	var x = u[1] * v[2] - u[2] * v[1],
+		y = u[2] * v[0] - u[0] * v[2],
+		z = u[0] * v[1] - u[1] * v[0];
+
+	return [x, y, z];
+}
+
+window.onbeforeunload = function(e)
+{
+	localStorage.setItem("u", vectorU.value);
+	localStorage.setItem("v", vectorV.value);
+};
+
+</script>
