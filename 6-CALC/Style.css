@@ -1,0 +1,98 @@
+*
+{
+    border: 0px;
+    font-family: Calibri, sans-serif;
+}
+
+body
+{
+    margin: 0px;
+}
+
+div
+{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 37.6%;
+    position: absolute;
+    color: #ffffff;
+}
+
+div#main
+{
+    text-align: center;
+    font-size: 30vh; /*1250%;*/
+    background-image: radial-gradient(#662244, #222222);
+}
+
+div#small
+{
+    font-size: 5vh;
+}
+
+button
+{
+    color: #ffffff;
+    width: 20%;
+    position: absolute;
+    height: 12.5%;
+    left: 0px;
+    font-size: 312.5%;
+    background-image: radial-gradient(#aa5500, #550000);
+}
+
+button:hover
+{
+    background-image: radial-gradient(#bb6600, #660000);
+}
+
+button:active
+{
+    background-image: radial-gradient(#cc7700, #770000);
+}
+
+.col1
+{
+    top: 37.6%;
+}
+
+.col2
+{
+    top: 50%;
+}
+
+.col3
+{
+    top: 62.5%;
+}
+
+.col4
+{
+    top: 75%;
+}
+
+.col5
+{
+    top: 87.5%;
+}
+
+.row2
+{
+    left: 20%;
+}
+
+.row3
+{
+    left: 40%;
+}
+
+.row4
+{
+    left: 60%;
+}
+
+.row5
+{
+    left: 80%;
+}
