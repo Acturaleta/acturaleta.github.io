@@ -1,0 +1,1224 @@
+<!doctype html>
+<html translate = "no">
+    <head>
+        <style>
+@font-face
+{
+    font-family: 'pixelated';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Minecraftia'), url('https://fonts.cdnfonts.com/s/31977/Minecraftia.woff') format('woff');
+}
+
+body
+{
+    background-color: #aaaaaa;
+    margin: 0px;
+}
+
+#doc
+{
+    background-color: #ffffff;
+    width: 210mm;
+    height: 297mm;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0%);
+}
+
+textarea
+{
+    color: #ffffff;
+    position: absolute;
+    resize: none;
+    left: 49%;
+    margin: 10%;
+    top: -11%;
+    left: 40%;
+    width: 50%;
+    height: 80%;
+    transform: translate(-50%, 0%);
+    background-color: #000000;
+    z-index: 1;
+    padding: 1%;
+    border: 2px solid;
+    border-color: #555555 #ffffff #ffffff #555555;
+    font-size: 16px;
+}
+
+button
+{
+    margin-left: 0.2%;
+    margin-top: 1%;
+    margin-right: 0.2%;
+    width: 8%;
+    font-size: 100%;
+    font-family: sans-serif;
+    border: 2px solid;
+    border-color: #ffffff #555555 #555555 #ffffff;
+    background-color: #ffffff;
+    -text-shadow: 1px 1px 0px #aaaaaa;
+    border-radius: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+button:hover
+{
+    background-color: #dddddd;
+}
+
+button:active
+{
+    border-color: #dddddd;
+    border-color: transparent transparent;
+}
+
+#main
+{
+    left: 30mm;
+    right: 30mm;
+    top: 30mm;
+    bottom: 30mm;
+    position: absolute;
+}
+
+#header
+{
+    position: absolute;
+    left: 30mm;
+    right: 30mm;
+    top: 5mm;
+    height: 20mm;
+}
+
+#footer
+{
+    position: absolute;
+    left: 30mm;
+    right: 30mm;
+    bottom: 5mm;
+    height: 20mm;
+}
+
+#prompt
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+#body
+{
+    left: 40%;
+    top: 40%;
+    right: 40%;
+    bottom: 40%;
+    background-color: #ffffff;
+    position: absolute;
+    border: 2px solid;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+}
+
+#title
+{
+    left: 41%;
+    top: 41%;
+    right: 41%;
+    bottom: 41%;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 125%;
+}
+
+#filename
+{
+    left: 45%;
+    right: 45%;
+    top: 47%;
+    height: 4%;
+    position: absolute;
+    border: 2px solid;
+    border-color: #555555 #aaaaaa #aaaaaa #555555;
+    text-align: center;
+}
+
+#ok
+{
+    left: 41%;
+    top: 54%;
+    width: 8%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+}
+
+#cancel
+{
+    left: 51%;
+    width: 8%;
+    top: 54%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+}
+
+#alert
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+#alertbody
+{
+    left: 30%;
+    top: 30%;
+    right: 30%;
+    bottom: 30%;
+    background-color: #ffffff;
+    position: absolute;
+    border: 2px solid;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+}
+
+#alerttitle
+{
+    left: 31%;
+    top: 31%;
+    right: 31%;
+    bottom: 31%;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 125%;
+}
+
+#alertok
+{
+    left: 46%;
+    top: 64%;
+    width: 8%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+}
+
+#alertmsg
+{
+    position: absolute;
+    text-align: center;
+    left: 35%;
+    right: 35%;
+    top: 35%;
+    bottom: 35%;
+    font-family: "pixelated", monospace;
+    font-size: 100%;
+}
+
+#customalert
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+#customalertbody
+{
+    left: 40%;
+    top: 40%;
+    right: 40%;
+    bottom: 40%;
+    background-color: #ffffff;
+    position: absolute;
+    border: 2px solid;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+}
+
+#customalerttitle
+{
+    left: 41%;
+    top: 41%;
+    right: 41%;
+    bottom: 41%;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 125%;
+}
+
+#customalertok
+{
+    left: 46%;
+    top: 54%;
+    width: 8%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+}
+
+#customalertmsg
+{
+    position: absolute;
+    text-align: center;
+    left: 41%;
+    right: 41%;
+    top: 45%;
+    bottom: 45%;
+    font-size: 100%;
+}
+
+#buttons
+{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+#controls
+{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 4.2%;
+    z-index: -1;
+}
+
+#controls button
+{
+    padding-top: 0%;
+    padding-bottom: 0%;
+    font-size: 90%;
+    border: 0px;
+    background-color: transparent;
+}
+
+#left
+{
+    color: #ffff00;
+    text-shadow: 0px 0px 1px #002200,
+                 0px 0px 2px #002200,
+                 0px 0px 4px #002200;
+    font-family: "Comic Sans MS";
+    font-size: 150%;
+    padding: 1%;
+    border: 2px solid;
+    text-align: center;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-left-color: #ffffff;
+    border-top-color: #ffffff;
+    border-right-color: #555555;
+    border-bottom-color: #555555;
+    border-bottom-right-radius: 25%;
+    background-color: #ffffff;
+}
+
+#right
+{
+    left: 0%;
+    bottom: 0%;
+    position: absolute;
+    padding: 1%;
+}
+
+#customconfirm
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+#customconfirmbody
+{
+    left: 40%;
+    top: 40%;
+    right: 40%;
+    bottom: 40%;
+    background-color: #ffffff;
+    position: absolute;
+    border: 2px solid;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+}
+
+#customconfirmtitle
+{
+    left: 41%;
+    top: 41%;
+    right: 41%;
+    bottom: 41%;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 125%;
+}
+
+#customconfirmmsg
+{
+    position: absolute;
+    text-align: center;
+    left: 41%;
+    right: 41%;
+    top: 45%;
+    bottom: 45%;
+    font-size: 100%;
+}
+
+#yes
+{
+    left: 41%;
+    top: 54%;
+    width: 8%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+    background-color: #aaffff;
+}
+
+#not
+{
+    left: 51%;
+    top: 54%;
+    width: 8%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+    background-color: #ffaaaa;
+}
+
+#yes:hover
+{
+    background-color: #88dddd;
+}
+
+#not:hover
+{
+    background-color: #dd8888;
+}
+
+#yes:active
+{
+    border-color: transparent;
+}
+
+#not:active
+{
+    border-color: transparent;
+}
+
+#customprompt
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+#custompromptbody
+{
+    left: 40%;
+    top: 40%;
+    right: 40%;
+    bottom: 40%;
+    background-color: #ffffff;
+    position: absolute;
+    border: 2px solid;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+}
+
+#customprompttitle
+{
+    left: 41%;
+    top: 41%;
+    right: 41%;
+    bottom: 41%;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 125%;
+}
+
+#custompromptfilename
+{
+    left: 45%;
+    right: 45%;
+    top: 47%;
+    height: 4%;
+    position: absolute;
+    border: 2px solid;
+    border-color: #555555 #aaaaaa #aaaaaa #555555;
+    text-align: center;
+}
+
+#custompromptok
+{
+    left: 41%;
+    top: 54%;
+    width: 8%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+}
+
+#custompromptcancel
+{
+    left: 51%;
+    width: 8%;
+    top: 54%;
+    height: 5%;
+    position: absolute;
+    border-color: #aaaaaa #555555 #555555 #aaaaaa;
+    margin: 0px;
+}
+        </style>
+    </head>
+    <body>
+        <textarea></textarea>
+        <div id = "doc">
+            <div id = "header"></div>
+            <div id = "main"></div>
+            <div id = "footer"></div>
+        </div>
+        <div id = "buttons">
+            <button id = "save"  onclick = "Save();">Save</button>
+            <button id = "run" onclick = "Run();">Run</button>
+            <button id = "import"  onclick = "Import();">Import</button>
+            <button id = "export"  onclick = "Export();">Export</button>
+            <button id = "help"  onclick = "Alert.hidden = false;">Help</button>
+            <button id = "download"  onclick = 'Link.click();'>Download</button>
+            <button id = "language"  onclick =
+            'if (navigator.onLine)
+            {
+                Rq(ELC, function(data)
+                {
+                    if (data == "en-GB")
+                    {
+                        data = "en-US";
+                    }
+                    CurrentLang = data;
+                    TranslateAll();
+                });
+            }
+            else
+            {
+                Warn(YAN);
+            }'>Language</button>
+        </div>
+        <div id = "controls">
+            <button>Alt + S</button>
+            <button>Alt + R</button>
+            <button>Alt + I</button>
+            <button>Alt + E</button>
+            <button>Alt + H</button>
+            <button>Alt + D</button>
+            <button>Alt + L</button>
+        </div>
+        <div id = "prompt" hidden>
+            <div id = "body"></div>
+            <div id = "title">Enter file name</div>
+            <input id = "filename">
+            <button id = "ok" onclick = "Prompt.hidden = true; Export0();">Ok</button>
+            <button id = "cancel" onclick = "Prompt.hidden = true;">Cancel</button>
+        </div>
+        <div id = "alert" hidden>
+            <div id = "alertbody"></div>
+            <div id = "alerttitle">Commands</div>
+            <div id = "alertmsg">&lt;.style|h.style|f.style> font &lt;font> size &lt;size> color &lt;color> bold &lt;true|false> italic &lt;true|false> underline<br>.break<br>&lt;-|h|f> &lt;...text><br>&lt;+sub|h+sub|f+sub> &lt;...text><br>&lt;+sup|h+sup|f+sup> &lt;...text><br>&lt;+utf8|h+utf8|f+utf8> &lt;code></div>
+            <button id = "alertok" onclick = "Alert.hidden = true;">Ok</button>
+        </div>
+        <div id = "customalert" hidden>
+            <div id = "customalertbody"></div>
+            <div id = "customalerttitle">Warning</div>
+            <div id = "customalertmsg">null</div>
+            <button id = "customalertok" onclick = "CustomAlert.hidden = true;">Ok</button>
+        </div>
+        <div id = "customconfirm" hidden>
+            <div id = "customconfirmbody"></div>
+            <div id = "customconfirmtitle">Warning</div>
+            <div id = "customconfirmmsg">null</div>
+            <button id = "yes" onclick = "Yes(); CustomConfirm.hidden = true";>Yes</button>
+            <button id = "not" onclick = "Not(); CustomConfirm.hidden = true";>Not</button>
+        </div>
+        <div id = "customprompt" hidden>
+            <div id = "custompromptbody"></div>
+            <div id = "customprompttitle">null</div>
+            <input id = "custompromptfilename">
+            <button id = "custompromptok" onclick = "CustomOk(); CustomPrompt.hidden = true;">Ok</button>
+            <button id = "custompromptcancel" onclick = "CustomCancel(); CustomPrompt.hidden = true;">Cancel</button>
+        </div>
+        <div id = "left">DocWriter 0</div>
+        <div id = "right">(c) 2024 by acturaleta@gmail.com, all rights reserved</div>
+    </body>
+</html>
+
+<script>
+
+Object.defineProperty(this, "VERSION",
+{
+    "value": "0"
+});
+(Link = document.createElement("a")).href = "https://www.mediafire.com/folder/41m7bqm4f5il4/DocWriter";
+Link.target = "_blank";
+CustomPrompt = document.querySelectorAll("#customprompt")[0];
+CustomPromptMsg = document.querySelectorAll("#customprompttitle")[0];
+CustomPromptInput = document.querySelectorAll("#custompromptfilename")[0];
+CustomAlert = document.querySelectorAll("#customalert")[0];
+CustomAlertMsg = document.querySelectorAll("#customalertmsg")[0];
+CustomConfirm = document.querySelectorAll("#customconfirm")[0];
+CustomConfirmMsg = document.querySelectorAll("#customconfirmmsg")[0];
+(Textarea = document.querySelectorAll("textarea")[0]).value = localStorage.getItem("last");
+Doc = document.querySelectorAll("#doc")[0];
+Doc.hidden = true;
+Main = document.querySelectorAll("#main")[0];
+Header = document.querySelectorAll("#header")[0];
+Footer = document.querySelectorAll("#footer")[0];
+Prompt = document.querySelectorAll("#prompt")[0];
+Alert = document.querySelectorAll("#alert")[0];
+FileName = document.querySelectorAll("#filename")[0];
+FileName.value = localStorage.getItem("filename");
+FileOutput = document.createElement("a");
+FileInput = document.createElement("input");
+FileInput.type = "file";
+FileInput.onchange = function(e)
+{
+    if (FileInput.files[0])
+    {
+        if (Textarea.value != "")
+        {
+            Ask(DYW2, function()
+            {
+                Textarea.value = "";
+                FR.readAsText(FileInput.files[0]);
+            });
+        }
+        else
+        {
+            Textarea.value = "";
+            FR.readAsText(FileInput.files[0]);
+        }
+    }
+};
+FR = new FileReader();
+FR.onload = function(e)
+{
+    var r = e.target.result.split("_"),
+        s = r[1],
+        l = s.length,
+        tv = "";
+    for (var i = 0; i < l; i += 3)
+    {
+        tv += String.fromCharCode((s[i] + s[i + 1] + s[i + 2]) * 1);
+    }
+    Textarea.value = tv;
+    if (r[0] != VERSION)
+    {
+        Warn(TFW + ": " + r[0]);
+    }
+    else
+    {
+        console.log(r[0]);
+    }
+};
+TFW = "This file was made for a different version";
+ReadMode = false;
+RunButton = document.querySelectorAll("#run")[0];
+
+function ProccessInput()
+{
+    var lines = Textarea.value.split("\n"),
+        finalString = "",
+        htmlValue = "",
+        headerValue = "",
+        footerValue = "",
+        headerFinalString = "",
+        footerFinalString = "";
+    for (var line of lines)
+    {
+        switch (line[0])
+        {
+            case "!":
+                break
+            case "-":
+                if (line[1] == " ")
+                {
+                    htmlValue += line.substring(2)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;");
+                }
+                break
+            case "h":
+                if (line[1] == " ")
+                {
+                    headerValue += line.substring(2)
+                          .replaceAll("<", "&lt;")
+                          .replaceAll(">", "&gt;")
+                          .replaceAll("&", "&amp;");
+                }
+                if (line == "h.break")
+                {
+                    headerValue += "<br>";
+                }
+                else if (line.startsWith("h.style"))
+                {
+                    var words = line.split(" "),
+                        wl = words.length;
+                        headerValue += "<span style = '";
+                    for (var i = 1; i < wl; i++)
+                    {
+                        switch (words[i])
+                        {
+                            case "font":
+                                headerValue += "font-family: " + ToFont(words[i + 1]) + ";";
+                                break
+                            case "size":
+                                headerValue += "font-size: " + words[i + 1] * 1 + "px;";
+                                break
+                            case "color":
+                                headerValue += "color: " + words[i + 1] + ";";
+                                break
+                            case "bold":
+                                headerValue += "font-weight: " + ToBold(words[i + 1]) + ";";
+                                break
+                            case "italic":
+                                headerValue += "font-style: " + ToItalic(words[i + 1]) + ";";
+                                break
+                            case "underline":
+                                headerValue += "text-decoration-line: " + ToUnderline(words[i + 1]) + ";";
+                                break
+                        }
+                    }
+                    headerValue += "'>";
+                    headerFinalString += "</span>";
+                }
+                else if (line.startsWith("h+sub "))
+                {
+                    headerValue += "<sub>" + line.substring(6)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;") + "</sub>";
+                }
+                else if (line.startsWith("h+sup "))
+                {
+                    headerValue += "<sup>" + line.substring(6)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;") + "</sup>";
+                }
+                else if (line.startsWith("h+utf8 "))
+                {
+                    var ls = line.substring(7);
+                    if (ls.replace("x", "").replace("a", "").replace("b", "").replace("c", "").replace("d", "").replace("e", "").replace("f", "") * 1 == ls.replace("x", "").replace("a", "").replace("b", "").replace("c", "").replace("d", "").replace("e", "").replace("f", ""))
+                    {
+                        headerValue += "&#" + ls + ";";
+                    }
+                    else
+                    {
+                        headerValue += "?";
+                    }
+                }
+                break
+            case "f":
+                if (line[1] == " ")
+                {
+                    footerValue += line.substring(2)
+                          .replaceAll("<", "&lt;")
+                          .replaceAll(">", "&gt;")
+                          .replaceAll("&", "&amp;");
+                }
+                else if (line == "f.break")
+                {
+                    footerValue += "<br>";
+                }
+                else if (line.startsWith("f.style"))
+                {
+                    var words = line.split(" "),
+                        wl = words.length;
+                    footerValue += "<span style = '";
+                    for (var i = 1; i < wl; i++)
+                    {
+                        switch (words[i])
+                        {
+                            case "font":
+                                footerValue += "font-family: " + ToFont(words[i + 1]) + ";";
+                                break
+                            case "size":
+                                footerValue += "font-size: " + words[i + 1] * 1 + "px;";
+                                break
+                            case "color":
+                                footerValue += "color: " + words[i + 1] + ";";
+                                break
+                            case "bold":
+                                footerValue += "font-weight: " + ToBold(words[i + 1]) + ";";
+                                break
+                            case "italic":
+                                footerValue += "font-style: " + ToItalic(words[i + 1]) + ";";
+                                break
+                            case "underline":
+                                footerValue += "text-decoration-line: " + ToUnderline(words[i + 1]) + ";";
+                                break
+                        }
+                    }
+                    footerValue += "'>";
+                    footerFinalString += "</span>";
+                }
+                else if (line.startsWith("f+sub "))
+                {
+                    footerValue += "<sub>" + line.substring(6)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;") + "</sub>";
+                }
+                else if (line.startsWith("f+sup "))
+                {
+                    footerValue += "<sup>" + line.substring(6)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;") + "</sup>";
+                }
+                else if (line.startsWith("f+utf8 "))
+                {
+                    var ls = line.substring(7);
+                    if (ls.replace("x", "").replace("a", "").replace("b", "").replace("c", "").replace("d", "").replace("e", "").replace("f", "") * 1 == ls.replace("x", "").replace("a", "").replace("b", "").replace("c", "").replace("d", "").replace("e", "").replace("f", ""))
+                    {
+                        footerValue += "&#" + ls + ";";
+                    }
+                    else
+                    {
+                        footerValue += "?";
+                    }
+                }
+                break
+            case ".":
+                if (line == ".break")
+                {
+                    htmlValue += "<br>";
+                }
+                else if (line.startsWith(".style"))
+                {
+                    var words = line.split(" "),
+                        wl = words.length;
+                    htmlValue += "<span style = '";
+                    for (var i = 1; i < wl; i++)
+                    {
+                        switch (words[i])
+                        {
+                            case "font":
+                                htmlValue += "font-family: " + ToFont(words[i + 1]) + ";";
+                                break
+                            case "size":
+                                htmlValue += "font-size: " + words[i + 1] * 1 + "px;";
+                                break
+                            case "color":
+                                htmlValue += "color: " + words[i + 1] + ";";
+                                break
+                            case "bold":
+                                htmlValue += "font-weight: " + ToBold(words[i + 1]) + ";";
+                                break
+                            case "italic":
+                                htmlValue += "font-style: " + ToItalic(words[i + 1]) + ";";
+                                break
+                            case "underline":
+                                htmlValue += "text-decoration-line: " + ToUnderline(words[i + 1]) + ";";
+                                break
+                        }
+                    }
+                    htmlValue += "'>";
+                    finalString += "</span>";
+                }
+                break
+            case "+":
+                if (line.startsWith("+sub "))
+                {
+                    htmlValue += "<sub>" + line.substring(5)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;") + "</sub>";
+                }
+                else if (line.startsWith("+sup "))
+                {
+                    htmlValue += "<sup>" + line.substring(5)
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll("&", "&amp;") + "</sup>";
+                }
+                else if (line.startsWith("+utf8 "))
+                {
+                    var ls = line.substring(6);
+                    if (ls.replace("x", "").replace("a", "").replace("b", "").replace("c", "").replace("d", "").replace("e", "").replace("f", "") * 1 == ls.replace("x", "").replace("a", "").replace("b", "").replace("c", "").replace("d", "").replace("e", "").replace("f", ""))
+                    {
+                        htmlValue += "&#" + ls + ";";
+                    }
+                    else
+                    {
+                        htmlValue += "?";
+                    }
+                }
+                break
+        }
+    }
+    return [headerValue, htmlValue + finalString, footerValue];
+}
+
+BTE = "Back to edit";
+
+function Run()
+{
+    if (ReadMode = !ReadMode)
+    {
+        var pi = ProccessInput();
+        Header.innerHTML = pi[0];
+        Main.innerHTML = pi[1];
+        Footer.innerHTML = pi[2];
+        Textarea.hidden = true;
+        Doc.hidden = false;
+        RunButton.innerHTML = BTE;
+    }
+    else
+    {
+        Main.innerHTML = "";
+        Textarea.hidden = false;
+        Doc.hidden = true;
+        RunButton.innerHTML = RRR;
+    }
+}
+
+function Import()
+{
+    FileInput.click();
+}
+
+function Export()
+{
+    Prompt.hidden = false;
+}
+
+function Export0()
+{
+    var s = VERSION + "_";
+    for (var c of Textarea.value)
+    {
+        s += NumberToString(c.charCodeAt(0));
+    }
+    var b = new Blob([s], {"type": "text/plain"});
+    var u = URL.createObjectURL(b);
+    FileOutput.href = u;
+    FileOutput.download = FileName.value + ".dwf";
+    FileOutput.click();
+    URL.revokeObjectURL(u);
+}
+
+function NumberToString(n)
+{
+    var s = n + "";
+    while (s.length < 3)
+    {
+        s = "0" + s;
+    }
+    return s;
+}
+
+function ToFont(f)
+{
+    if (f.includes(",")
+    ||  f.includes(";")
+    ||  f.includes("'")
+    ||  f.includes("\""))
+    {
+        return "serif";
+    }
+    else
+    {
+        return f;
+    }
+}
+
+function Save()
+{
+    localStorage.setItem("last", Textarea.value);
+}
+
+DYW = "Do you want yo leave without saving changes?";
+
+window.onbeforeunload = function(e)
+{
+    if (Textarea.value != localStorage.getItem("last"))
+    {
+        e.preventDefault();
+        e.returnValue = DYW;
+    }
+    localStorage.setItem("filename", FileName.value);
+    localStorage.setItem("lang", CurrentLang);
+};
+
+function ToBold(v)
+{
+    if (v == "true")
+    {
+        return "bold";
+    }
+    else
+    {
+        return "400";
+    }
+}
+
+function ToUnderline(v)
+{
+    if (v == "true")
+    {
+        return "underline";
+    }
+    else
+    {
+        return "none";
+    }
+}
+
+function ToItalic(v)
+{
+    if (v == "true")
+    {
+        return "italic";
+    }
+    else
+    {
+        return "normal";
+    }
+}
+
+function Warn(msg)
+{
+    CustomAlertMsg.innerHTML = msg;
+    CustomAlert.hidden = false;
+}
+
+document.onkeydown = function Keydown(e)
+{
+    PressedKeys[e.key.toLowerCase()] = true;
+}
+
+document.onkeyup = function Keyup(e)
+{
+    if (PressedKeys.alt)
+    {
+        if (PressedKeys.s)
+        {
+            Save();
+        }
+        if (PressedKeys.r)
+        {
+            Run();
+        }
+        if (PressedKeys.i)
+        {
+            Import();
+        }
+        if (PressedKeys.e)
+        {
+            Export();
+        }
+        if (PressedKeys.h)
+        {
+            Alert.hidden = false;
+        }
+        if (PressedKeys.d)
+        {
+            Link.click();
+        }
+    }
+    PressedKeys[e.key.toLowerCase()] = false;
+}
+
+PressedKeys = {};
+
+function Yes()
+{
+    Yes0();
+    Yes0 = function()
+    {};
+}
+
+function Yes0()
+{}
+
+function Not()
+{
+    Not0();
+    Not0 = function()
+    {};
+}
+
+function Not0()
+{}
+
+function Ask(msg, actionYes, actionNot)
+{
+    CustomConfirm.hidden = false;
+    CustomConfirmMsg.innerHTML = msg;
+    if (typeof actionYes == "function")
+    {
+        Yes0 = actionYes;
+    }
+    if (typeof actionNot == "function")
+    {
+        Not0 = actionNot;
+    }
+}
+
+function Translate(object, property, text, lang)
+{
+    fetch
+    (
+        "https://api.mymemory.translated.net/get?q="
+        + text
+        + "&langpair=en-US|" + lang
+    ).then(function(res)
+    {
+        return res.json();
+    }).then(function(data)
+    {
+        object[property] = data.responseData.translatedText + " ";
+        data.matches.forEach(function(data)
+        {
+            if(data.id === 0)
+            {
+                object[property] = data.translation + " ";
+            }
+        });
+    });
+}
+
+RRR = "Run";
+
+DYW2 = "Do you want to replace the current file?";
+
+function TranslateAll()
+{
+    Translate(this, "DYW", "Do you want yo leave without saving changes?", CurrentLang);
+    Translate(this, "BTE", "Back to edit", CurrentLang);
+    Translate(this, "RRR", "Run", CurrentLang);
+    Translate(this, "DYW2", "Do you want to replace the current file?", CurrentLang);
+    Translate(this, "TFW", "This file was made for a different version", CurrentLang);
+    Translate(this, "ELC", "Enter language code", CurrentLang);
+    Translate(this, "YAN", "This action requires Internet connection", CurrentLang);
+    for (var i in TranslationInputs)
+    {
+        Translate(document.querySelectorAll(i)[0], "innerHTML", TranslationInputs[i], CurrentLang);
+    }
+}
+
+TranslationInputs =
+{
+    "#save": "Save",
+    "#run": "Run",
+    "#import": "Import",
+    "#export": "Export",
+    "#help": "Help",
+    "#download": "Download",
+    "#language": "Language",
+    "#title": "Enter file name",
+    "#ok": "Ok",
+    "#cancel": "Cancel",
+    "#custompromptok": "Ok",
+    "#custompromptcancel": "Cancel",
+    "#alerttitle": "Commands",
+    "#alertok": "Ok",
+    "#customalerttitle": "Warning",
+    "#customalertok": "Ok",
+    "#customconfirmtitle": "Warning",
+    "#yes": "Yes",
+    "#not": "Not"
+};
+
+ELC = "Enter language code";
+
+function CustomOk()
+{
+    CustomOk0(CustomPromptInput.value);
+    CustomOk0 = function()
+    {};
+}
+
+function CustomOk0()
+{}
+
+function CustomCancel()
+{
+    CustomCancel0();
+    CustomCancel0 = function()
+    {};
+}
+
+function CustomCancel0()
+{}
+
+function Rq(msg, actionOk, actionCancel)
+{
+    CustomPrompt.hidden = false;
+    CustomPromptMsg.innerHTML = msg;
+    if (typeof actionOk == "function")
+    {
+        CustomOk0 = actionOk;
+    }
+    if (typeof actionCancel == "function")
+    {
+        CustomCancel0 = actionCancel;
+    }
+}
+
+YAN = "This action requires Internet connection";
+
+CurrentLang = localStorage.getItem("lang");
+if (CurrentLang == null)
+{
+    CurrentLang = "en-US";
+}
+
+if (navigator.onLine && CurrentLang != "en-GB" && CurrentLang != "en-US")
+{
+    TranslateAll();
+}
+
+function CheckTranslation()
+{
+    if (RunButton.innerHTML.startsWith("MYMEMORY"))
+    {
+        CurrentLang = "en-US";
+        location.href = location.href;
+    }
+    setTimeout(CheckTranslation, 1000);
+}
+
+CheckTranslation();
+
+</script>
