@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>6-CALC</title>
+        <link rel = stylesheet href = Style.css>
+    </head>
+    <body>
+        <div id = "main">0</div>
+        <div id = "small">M = 0</div>
+        <button class = "c col1 row1" onclick = "Click(1, 1);">M+</button>
+        <button class = "c col2 row1" onclick = "Click(2, 1);">7</button>
+        <button class = "c col3 row1" onclick = "Click(3, 1);">4</button>
+        <button class = "c col4 row1" onclick = "Click(4, 1);">1</button>
+        <button class = "c col5 row1" onclick = "Click(5, 1);">&infin;</button>
+        <button class = "c col1 row2" onclick = "Click(1, 2);">M-</button>
+        <button class = "c col2 row2" onclick = "Click(2, 2);">8</button>
+        <button class = "c col3 row2" onclick = "Click(3, 2);">5</button>
+        <button class = "c col4 row2" onclick = "Click(4, 2);">2</button>
+        <button class = "c col5 row2" onclick = "Click(5, 2);">0</button>
+        <button class = "c col1 row3" onclick = "Click(1, 3);">MR</button>
+        <button class = "c col2 row3" onclick = "Click(2, 3);">9</button>
+        <button class = "c col3 row3" onclick = "Click(3, 3);">6</button>
+        <button class = "c col4 row3" onclick = "Click(4, 3);">3</button>
+        <button class = "c col5 row3" onclick = "Click(5, 3);">.</button>
+        <button class = "c col1 row4" onclick = "Click(1, 4);">MC</button>
+        <button class = "c col2 row4" onclick = "Click(2, 4);">&plus;</button>
+        <button class = "c col3 row4" onclick = "Click(3, 4);">&times;</button>
+        <button class = "c col4 row4" onclick = "Click(4, 4);">&squ;<sup>&squ;</sup></button>
+        <button class = "c col5 row4" onclick = "Click(5, 4);">&PlusMinus;</button>
+        <button class = "c col1 row5" onclick = "Click(1, 5);">Reset</button>
+        <button class = "c col2 row5" onclick = "Click(2, 5);">-</button>
+        <button class = "c col3 row5" onclick = "Click(3, 5);">&div;</button>
+        <button class = "c col4 row5" onclick = "Click(4, 5);">&percnt;</button>
+        <button class = "c col5 row5" onclick = "Click(5, 5);">&equals;</button>
+        <div id = "alert" hidden>
+            <div id = "alert-body">
+                <div id = "alert-body-msg">null</div>
+                <button id = "alert-body-button" onclick = "AlertElement.hidden = true;">
+                    Ok.
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script src = Program.js></script>
