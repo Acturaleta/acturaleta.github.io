@@ -33,6 +33,7 @@ button
     width: 16%;
     margin-left: 2%;
     margin-right: 2%;
+    margin-top: 2%;
     transition-duration: 0.2s;
 }
 
