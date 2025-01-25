@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+	<head>
+		<title>
+			Flota fan-made
+		</title>
+		<style>
+			img
+			{
+				height: 15vw;
+			}
+			warning
+			{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 90%;
+				height: 80%;
+				padding: 5%;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+			warning-content
+			{
+				position: absolute;
+				background-color: #ffffff;
+				width: 90%;
+				height: 80%;
+				text-align: center;
+				font-size: 24px;
+			}
+			a
+			{
+				color: #0000ff;
+				text-decoration-line: underline;
+				cursor: pointer;
+			}
+			warning-button
+			{
+				position: absolute;
+				bottom: 15%;
+				left: 40%;
+				right: 40%;
+				text-align: center;
+				border: 2px solid;
+				border-color: #aaaaaa #000000 #000000 #aaaaaa;
+				font-size: 40px;
+			}
+			warning-button:active
+			{
+				border-color: transparent #555555 #555555 transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>
+				0000/Classic/Clásicos
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1372&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1716&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1487&photo=">
+		</div>
+		<div>
+			<h1>
+				1000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1285&photo=">
+		</div>
+		<div>
+			<h1>
+				2000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=50&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=379&photo=">
+		</div>
+		<div>
+			<h1>
+				3000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=513&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1238&photo=">
+		</div>
+		<div>
+			<h1>
+				4000
+			</h1>
+		</div>
+		<div>
+			<h1>
+				5000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=852&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=693&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=633&photo=">
+		</div>
+		<div>
+			<h1>
+				6000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=630&photo=">
+		</div>
+		<div>
+			<h1>
+				7000/9000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=565&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=310&photo=">
+		</div>
+		<div>
+			<h1>
+				8000
+			</h1>
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=801&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1241&photo=">
+			<img src = "https://www.listadotren.es/comunes/getimage.php?section=metros&tid=1283&photo=">
+		</div>
+	</body>
+</html>
+
+<warning>
+	<warning-content>
+		<br>
+		<span style = "font-size: 32px;">Warning</span>
+		<br>
+		<br>
+		This page is fan-made and all images come from <a href = "https://www.listadotren.es">listadotren.es</a>
+		<br>
+		<br>
+		Esta página está <i>fan-made</i> y todas las imágenes provienen de <a href = "https://www.listadotren.es">listadotren.es</a>
+	</warning-content>
+	<warning-button onclick = "Start();">
+		Ok
+	</warning-button>
+</warning>
+
+<script>
+
+IMAGES = document.querySelectorAll("img");
+for (var x of IMAGES)
+{
+	try
+	{
+		x.hidden = true;
+	}
+	catch(e)
+	{
+		console.log(e);
+	}
+}
+
+function Start()
+{
+	document.querySelectorAll('warning')[0].hidden = true;
+	for (var x of IMAGES)
+	{
+		try
+		{
+			x.hidden = false;
+		}
+		catch(e)
+		{
+			console.log(e);
+		}
+	}
+}
+
+</script>
