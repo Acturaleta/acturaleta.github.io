@@ -1,0 +1,20 @@
+body
+{
+	margin: 2vw;
+}
+
+table
+{
+    border-collapse: collapse;
+	width: 96vw;
+}
+
+td img
+{
+	max-width: 25vw;
+}
+
+th, td
+{
+	text-align: center;
+}
